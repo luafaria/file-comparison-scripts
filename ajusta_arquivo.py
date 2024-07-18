@@ -1,12 +1,21 @@
+import os
 import pandas as pd
 
+# Diretórios de entrada e saída
+input_dir = 'input'
+output_dir = 'output'
+
+# Verificar se os diretórios existem, caso contrário, criá-los
+os.makedirs(input_dir, exist_ok=True)
+os.makedirs(output_dir, exist_ok=True)
+
 # Caminhos dos arquivos Excel (dados fictícios)
-arquivo_dados1 = 'dados1_original.xlsx'
-arquivo_dados2 = 'dados2_original.xlsx'
+arquivo_dados1 = os.path.join(input_dir, 'dados1_original.xlsx')
+arquivo_dados2 = os.path.join(input_dir, 'dados2_original.xlsx')
 
 # Novos nomes para os arquivos de saída
-novo_arquivo_dados1 = 'dados1_comum.xlsx'
-novo_arquivo_dados2 = 'dados2_comum.xlsx'
+novo_arquivo_dados1 = os.path.join(output_dir, 'dados1_comum.xlsx')
+novo_arquivo_dados2 = os.path.join(output_dir, 'dados2_comum.xlsx')
 
 # Carregar os arquivos Excel para DataFrames do pandas
 df_dados1 = pd.read_excel(arquivo_dados1)
